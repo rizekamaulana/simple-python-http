@@ -10,6 +10,7 @@ env:
   GAR_LOCATION: us-west1
   REPOSITORY: image-python-http
   IMAGE_NAME: image-python-http
+  PROJECT_ID: udb-ti-24a1
 
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      image: ${{ steps.image.outputs.image }}
+      image: ${{ steps.export-image.outputs.image }}
 
     steps:
       - name: Checkout source
@@ -38,18 +39,18 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t $GAR_LOCATION-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/$REPOSITORY/$IMAGE_NAME:${{ github.sha }} \
+            -t $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:${{ github.sha }} \
             .
 
       - name: Push Docker image
         run: |
           docker push \
-            $GAR_LOCATION-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/$REPOSITORY/$IMAGE_NAME:${{ github.sha }}
+            $GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:${{ github.sha }}
 
       - name: Export image reference
-        id: image
+        id: export-image
         run: |
-          echo "image=$GAR_LOCATION-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/$REPOSITORY/$IMAGE_NAME:${{ github.sha }}" >> $GITHUB_OUTPUT
+          echo "image=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_NAME:${{ github.sha }}" >> $GITHUB_OUTPUT
 
   deploy:
     name: Deploy to Cloud Run
