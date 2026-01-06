@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Python Web Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .info {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: left;
+        }
+        
+        .info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info li {
+            padding: 5px 0;
+            color: #555;
+        }
+        
+        .info li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Simple Python Web Server</h1>
+        <p>Selamat datang di <span class="highlight">Python Web Server</span> sederhana!</p>
+        <p>Server ini berjalan menggunakan <span class="highlight">Flask</span> dan dikemas dalam <span class="highlight">Docker</span>.</p>
+        
+        <div class="info">
+            <h3>Informasi Server</h3>
+            <ul>
+                <li>Framework: Flask</li>
+                <li>Port: 5000</li>
+                <li>Container: Docker</li>
+                <li>Status: Running</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
